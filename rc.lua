@@ -304,7 +304,7 @@ globalkeys = gears.table.join(
         { description = "go back", group = "client" }),
 
     -- Standard program
-    awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
+    awful.key({ modkey, "Shift"}, "Return", function() awful.spawn(terminal) end,
         { description = "open a terminal", group = "launcher" }),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
         { description = "reload awesome", group = "awesome" }),
@@ -366,8 +366,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "p", function() awful.spawn("/home/ashish/.scripts/dmenuflat") end,
         { description = "open dmenu for flatpak apps", group = "launcher" }),
     -- open pcmanfm
-    awful.key({ modkey, }, "e", function() awful.spawn("pcmanfm") end,
-        { description = "open file manager - pcmanfm", group = "applications" }),
+    -- awful.key({ modkey, }, "e", function() awful.spawn("pcmanfm") end,
+    --     { description = "open file manager - pcmanfm", group = "applications" }),
     -- open ranger
     awful.key({ modkey, "Shift" }, "e", function() awful.spawn("urxvt -e ranger") end,
         { description = "open ranger in rxvt-unicode", group = "applications" }),
@@ -375,7 +375,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1" }, "Return", function() awful.spawn("urxvt -e fish") end,
         { description = "open fish in rxvt-unicode", group = "applications" }),
     -- open alacritty
-    awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("alacritty") end,
+    awful.key({ modkey, }, "Return", function() awful.spawn("alacritty") end,
         { description = "open kitty terminal", group = "applications" }),
     -- change wallpaper
     awful.key({ modkey, "Shift" }, "w", function() awful.spawn("feh --bg-fill -z /home/ashish/Pictures/ikaruga") end,
@@ -723,7 +723,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 client.connect_signal("manage", function(c)
     c.shape = function(cr, w, h)
-        gears.shape.rounded_rect(cr, w, h, 5)
+        gears.shape.rounded_rect(cr, w, h, 3)
     end
 end)
 
